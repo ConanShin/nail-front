@@ -1,30 +1,38 @@
 <template>
     <div class="schedule">
-        Schedule
+        <calendar @selectDate="readTimeTable"></calendar>
+        <time-table></time-table>
     </div>
 </template>
 
 <script>
     import {Component, Vue} from 'vue-property-decorator'
     import PullToRefresh from 'pulltorefreshjs'
+    import Calendar from "@/views/Schedule/Calendar";
+    import TimeTable from "@/views/Schedule/TimeTable";
 
-    @Component
+    @Component({
+        components: {TimeTable, Calendar}
+    })
     export default class Schedule extends Vue {
         get userId() {
             return sessionStorage.getItem('userId')
         }
 
         pullToRefresh() {
-            const _this = this
             PullToRefresh.init({
-                triggerElement: '.home',
+                triggerElement: '.schedule',
                 onRefresh() {
-                    _this.$store.dispatch('readItems')
+                    console.log('hello')
                 },
                 instructionsPullToRefresh: ' ',
                 instructionsReleaseToRefresh: ' ',
                 instructionsRefreshing: ' '
             })
+        }
+
+        readTimeTable(date) {
+            this.$store.dispatch('readTimeTable', date)
         }
 
         mounted() {
@@ -35,5 +43,6 @@
 
 <style scoped lang="scss">
     .schedule {
+        position: relative;
     }
 </style>

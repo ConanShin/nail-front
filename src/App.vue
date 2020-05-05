@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <div class="title">things</div>
+        <div class="title">Nail B</div>
         <router-view></router-view>
     </div>
 </template>
