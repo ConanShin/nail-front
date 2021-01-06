@@ -20,7 +20,7 @@
     "@vue/cli-plugin-router": "~4.3.0",
     "@vue/cli-plugin-vuex": "~4.3.0",
     "@vue/cli-service": "~4.3.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "moment": "^2.25.2",
     "pulltorefreshjs": "^0.1.20",
     "sass": "^1.26.3",
